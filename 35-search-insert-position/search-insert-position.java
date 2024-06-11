@@ -1,5 +1,6 @@
 class Solution {
     public int searchInsert(int[] nums, int target) {
+        //LOWER BOUND OF AN ARRAY
        int n= nums.length;
        int low=0, high=n-1;
        int ans =n;
