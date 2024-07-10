@@ -22,7 +22,9 @@ class MyStack {
     }
     
     public boolean empty() {
-        return q.isEmpty();
+        if(q.size() == 0){
+            return true;
+        } return false;
     }
 }
 
