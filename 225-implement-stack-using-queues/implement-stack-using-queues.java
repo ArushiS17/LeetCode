@@ -7,8 +7,8 @@ class MyStack {
     public void push(int x) {
         q.add(x);
         for(int i = 1; i<q.size(); i++){
-            q.add(q.peek());
-            q.remove();
+            q.add(q.remove());
+            
         }
     }
     
