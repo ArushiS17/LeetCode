@@ -1,21 +1,25 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        int start =0;
-        int end =0;
-        int max= 0;
-
-        HashSet<Character> seen = new HashSet<>();
-        while(end<s.length()){
-            char c = s.charAt(end);
-            while(seen.contains(c)){
-                seen.remove(s.charAt(start));
-                start+=1;
-            }
-            seen.add(c);
-            int windowsize= end-start+1;
-            max= Math.max(max, end-start+1);
-            end += 1;
+        int l = 0;
+        int r = 0;
+        int n = s.length();
+        int maxlen = 0;
+        int [] hash = new int [256]; //array to see last seen positions
+        for(int i =0; i<256; i++){
+            hash[i] = -1; //initialise hadh array with -1
         }
-        return max;
+
+        while(r<n){
+            if(hash[s.charAt(r)]!= -1){ // if character at r is seen
+                if(hash[s.charAt(r)]>= l){ //if lastseen position is within window, move left pointer to right of last seen position (next step)
+                    l = hash[s.charAt(r)]+1; //moves left pointer to right of last seen
+                }
+            }
+            int len = r-l+1; //window size
+            maxlen= Math.max(len, maxlen);
+            hash[s.charAt(r)] = r; //updates last seen position
+            r++;
+        }
+        return maxlen;
     }
 }
