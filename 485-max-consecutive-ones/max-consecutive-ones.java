@@ -8,7 +8,7 @@ class Solution {
                 count++;
             } else{
                 maxCount=Math.max(maxCount, count);
-                count=0;
+                count = 0;
             }
         }
          return Math.max(maxCount,count);
