@@ -7,10 +7,10 @@ class Solution {
             if(nums[i]==1){
                 count++;
             } else{
-                maxCount=Math.max(maxCount, count);
                 count = 0;
             }
+            maxCount=Math.max(maxCount, count);
         }
-         return Math.max(maxCount,count);
+         return maxCount;
     }
 }
